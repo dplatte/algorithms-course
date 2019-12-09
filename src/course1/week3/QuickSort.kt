@@ -76,9 +76,7 @@ fun quickSort(x: Array<Int>, l: Int, r: Int, type: PivotType) {
 
     if(type == PivotType.LAST) {
         //Swap first and last elements
-        val temp = x[l]
-        x[l] = x[r]
-        x[r] = temp
+        x[l] = x[r].also{ x[r] = x[l]}
     } else if(type == PivotType.MEDIAN_OF_THREE) {
         val a = x[l]
         val b = x[(r + l) / 2]
@@ -112,17 +110,14 @@ fun partition(x: Array<Int>, l: Int, r: Int): Int {
 
     for(j in (l+1)..r) {
         if(x[j] < p) {
-            val temp = x[j]
-            x[j] = x[i]
-            x[i] = temp
+            //Swap
+            x[i] = x[j].also{x[j] = x[i]}
             i++
         }
     }
 
     //Place the pivot element in its correct position
-    val temp = x[l]
-    x[l] = x[i-1]
-    x[i-1] = temp
+    x[l] = x[i-1].also{ x[i-1] = x[l]}
 
     return i - 1
 }
