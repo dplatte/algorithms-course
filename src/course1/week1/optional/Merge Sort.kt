@@ -1,3 +1,5 @@
+package course1.week1.optional
+
 import java.util.Arrays
 
 fun main() {

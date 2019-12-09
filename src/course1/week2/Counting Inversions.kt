@@ -1,3 +1,5 @@
+package course1.week2
+
 import java.io.File
 
 fun main() {
